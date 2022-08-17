@@ -43,7 +43,6 @@ def PCALoss(x, coefficient=10):
     conv = torch.cov(embedding.T)
     on_diag = torch.diagonal(conv).add_(-1).pow_(2).sum()
     off_diag = off_diagonal(conv).pow_(2).sum()
-    # (seed 123)baby 100 / (seed 10)clothing 2 / (seed 10)sports 0.1
     return (on_diag + off_diag) / coefficient
 
 def clones(module, N):
